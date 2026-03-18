@@ -1,4 +1,4 @@
-function App() {
+export function LoginPage() {
 
   return (
     <div className="w-screen h-screen bg-[#6359BD] flex items-center justify-center">
@@ -74,4 +74,3 @@ function App() {
   );
 }
 
-export default App;
