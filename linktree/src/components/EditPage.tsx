@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { Input } from "./Input"
+import { Link } from "@tanstack/react-router";
+import { SocialMediaLink } from "./Header/SocialMediaLink";
+import { SiGithub } from "react-icons/si";
 
 interface Link {
     name: string,
@@ -9,6 +12,12 @@ interface Link {
 export const EditPage = () => {
     const[name, setName] = useState("Zezinho Barros");
     const [links, setLinks] = useState<Link[]>([]);
+
+    const[instagram, setInstagram] = useState("");
+    const[linkedin, setLinkedin] = useState("");
+    const[tiktok, setTiktok] = useState("");
+    const[facebook, setFacebook] = useState("");
+    const[github, setGithub] = useState("");
 
     const hanleAddLink = () => {
         setLinks([...links, {name: "", url:""}]);
@@ -28,7 +37,7 @@ export const EditPage = () => {
     return (
         <div>
             <div className="container mx-auto flex">
-                <main className="w-8/12 bg-red-800 p-4">
+                <main className="w-8/12 p-4">
                     <form className="space-y-4"
                     onSubmit={(event) => {
                         event.preventDefault();
@@ -40,18 +49,23 @@ export const EditPage = () => {
                         placeholder="Ex: João" 
                         value={name}
                         onChange={(event) => {setName(event.target.value);}}/>
-                        <Input name="GitHub" id="github" placeholder="Ex: jovtrc" />
+                        <Input name="GitHub" id="github" placeholder="Ex: jovtrc" value={github}
+                        onChange={(event) => {setGithub(event.target.value);}}/>
 
                         <div className="grid grid-cols-4 gap-4">
-                            <Input name="Nome" id="name" placeholder="Ex: João" />
+                            <Input name="Nome" id="name" placeholder="Ex: João"  />
 
-                            <Input name="Linkedin" id="github" placeholder="Ex: jovtrc" />
+                            <Input name="Linkedin" id="Linkedin" placeholder="Ex: jovtrc" value={linkedin}
+                        onChange={(event) => {setLinkedin(event.target.value);}} />
 
-                            <Input name="Instagram" id="github" placeholder="Ex: jovtrc" />
+                            <Input name="instagram" id="instagram" placeholder="Ex: jovtrc" value={instagram}
+                        onChange={(event) => {setInstagram(event.target.value);}} />
 
-                            <Input name="TikTok" id="github" placeholder="Ex: jovtrc" />
+                            <Input name="Tiktok" id="Tiktok" placeholder="Ex: jovtrc" value={tiktok}
+                        onChange={(event) => {setTiktok(event.target.value);}}/>
                             
-                            <Input name="Facebook" id="github" placeholder="Ex: jovtrc" />
+                            <Input name="Facebook" id="Facebook" placeholder="Ex: jovtrc" value={facebook}
+                        onChange={(event) => {setFacebook(event.target.value);}} />
                         </div>
 
                         <div className="space-y-4">
@@ -59,7 +73,7 @@ export const EditPage = () => {
                                     return(
                                         <div className="flex gap-4">
                                             <Input
-                                            name= { "Nome dolink" + index + 1}
+                                            name= { "Nome dolink" + (index + 1)}
                                             id= {"link-" + name}
                                             value= {"link.url"}
                                             placeholder="Ex: Portfólio"
@@ -87,11 +101,33 @@ export const EditPage = () => {
                     </form>
                 </main>
 
-                <aside className="w-4/12 bg-red-300">
-                    seu nome: {name}
+                <aside className="w-4/12 p-4 ">
+                    <div className="rounded border-8 p-4 max-w-lg mx-auto">
+                        <div className="flex flex-col gap-2 items-center">
+                            <span className="block w-16 h-16 rounded-full bg-blue-200"></span>
+                            <h1 className="font-bold ">{name}</h1>
+                        </div>
+
+                        <ul className="flex gap-2 justfy-center">
+                            {github !== "" && (
+                                <li>
+                                    <SocialMediaLink link={"https://github.com/" + github}> <SiGithub/></SocialMediaLink>
+                                </li>
+                            )}
+
+                            {linkedin !== "" && (
+                                <li>
+                                    <SocialMediaLink link={"https://br.linkedin.com/in" + linkedin}> L</SocialMediaLink>
+                                </li>
+                            )}
+
+                            
+
+                        </ul>
+
+                    </div>
                 </aside>
 
-                <aside className="w-4/12 bg-red-300 h-96"></aside>
             </div>
         </div>
     )
