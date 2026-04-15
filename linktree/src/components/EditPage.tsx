@@ -9,35 +9,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { Preview } from "./Preview";
 import { MainContent } from "./MainContent";
 
-interface Link {
-    name: string,
-    url: string
-}
+
+
+
 
 export const EditPage = () => {
-    const[name, setName] = useState("Zezinho Barros");
-    const [links, setLinks] = useState<Link[]>([]);
-
-    const[instagram, setInstagram] = useState("");
-    const[linkedin, setLinkedin] = useState("");
-    const[tiktok, setTiktok] = useState("");
-    const[facebook, setFacebook] = useState("");
-    const[github, setGithub] = useState("");
-
-    const hanleAddLink = () => {
-        setLinks([...links, {name: "", url:""}]);
-    }
-
-    const handleLinkChanged = (index: number, field: string, value: string) => {
-        const updateLinks = [...links];
-
-        updateLinks[index] = {
-            ...updateLinks[index],
-            [field]: value,
-        }
-
-        setLinks(updateLinks);
-    }
+    
 
     return (
         <div>

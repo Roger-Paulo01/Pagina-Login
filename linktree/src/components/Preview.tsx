@@ -32,33 +32,33 @@ export function Preview({
                             <ul className="flex gap-2 justify-center">
                                 {github !== "" && (
                                     <li>
-                                        <SocialMediaLink link={"https://github.com/" + github}> <SiGithub/></SocialMediaLink>G
+                                        <SocialMediaLink link={"https://github.com/" + github}> <SiGithub/></SocialMediaLink>
                                     </li>
                                 )}
     
                                 {linkedin !== "" && (
                                     <li>
-                                        <SocialMediaLink link={"https://br.linkedin.com/in" + linkedin}><FaLinkedin />L</SocialMediaLink>
+                                        <SocialMediaLink link={"https://br.linkedin.com/in" + linkedin}><FaLinkedin /></SocialMediaLink>
                                     </li>
                                 )}
     
                                 {instagram !== "" && (
                                     <li>
-                                        <SocialMediaLink link={"https://instagram.com/" + instagram}><SiInstagram />I
+                                        <SocialMediaLink link={"https://instagram.com/" + instagram}><SiInstagram />
                                         </SocialMediaLink>
                                     </li>
                                 )}
     
                                 {tiktok !== "" && (
                                     <li>
-                                        <SocialMediaLink link={"https://www.tiktok.com/@" + tiktok}><SiTiktok />T
+                                        <SocialMediaLink link={"https://www.tiktok.com/@" + tiktok}><SiTiktok />
                                         </SocialMediaLink>
                                     </li>
                                 )}
     
                                 {facebook !== "" && (
                                     <li>
-                                        <SocialMediaLink link={"https://facebook.com/" + facebook}><SiFacebook />F
+                                        <SocialMediaLink link={"https://facebook.com/" + facebook}><SiFacebook />
                                         </SocialMediaLink>
                                     </li>
                                 )}
